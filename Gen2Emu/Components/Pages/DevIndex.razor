@@ -1,0 +1,86 @@
+﻿@page "/shell/DevIndex.html"
+
+<script>
+	console.log = function()
+	{
+		document.querySelector("pre").innerText += JSON.stringify(arguments) + "\n";
+	};
+
+	window.addEventListener("load", function()
+	{
+		document.querySelector("button.refresh").addEventListener("click", function()
+		{
+			document.location.reload();
+		});
+
+		document.querySelector("button.clear").addEventListener("click", function()
+		{
+				document.querySelector("pre").innerText = "";
+		});
+
+		document.querySelector("form").addEventListener("submit", function(event)
+		{
+			event.preventDefault();
+
+			try
+			{
+				var result = eval(document.querySelector("input").value);
+				var output = result;
+
+				if (typeof result === "object")
+				{
+					output = {};
+
+					Object.keys(result).forEach(function(key)
+					{
+						output[key] = typeof result[key] === "object" ? "{...}" : result[key];
+					});
+				}
+
+				document.querySelector("pre").innerText += document.querySelector("input").value + "\n";
+				document.querySelector("pre").innerText += JSON.stringify(output, null, 2) + "\n";
+
+				document.querySelector("input").value = "";
+			}
+			catch (error)
+			{
+				document.querySelector("pre").innerText += error.message + "\n";
+			}
+		});
+	});
+</script>
+
+<table cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="viewport">
+			<iframe src="@_page"></iframe>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="inputs">
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td>
+						<button class="refresh">Refresh</button>
+					</td>
+					<td>
+						<button class="clear">clear</button>
+					</td>
+					<td>
+						<form>
+							<input/>
+						</form>
+					</td>
+				</tr>
+			</table>
+
+		</td>
+	</tr>
+
+	<tr>
+		<td class="output">
+			<pre></pre>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>@typeof(App).Assembly.GetName().Name</title>
+
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+	<base href="/"/>
+
+	<link rel="stylesheet" href="styles/styles.css"/>
+	<link rel="stylesheet" href="Gen2Emu.styles.css"/>
+
+	<link rel="icon" type="image/png" href="favicon.ico"/>
+
+	<script src="scripts/scripts.js"></script>
+
+	<HeadOutlet @rendermode="@InteractiveServer"/>
+</head>
+<body>
+<Routes @rendermode="@InteractiveServer"/>
+<script src="_framework/blazor.web.js"></script>
+</body>
+</html>

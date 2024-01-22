@@ -1,0 +1,22 @@
+@font-face {
+	font-family: "Eurostile LT Std Demi";
+	src: url("../fonts/EurostileLTStd-Demi.otf") format("opentype");
+}
+
+html {
+	height: 100%;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: url("../images/background.jpg");
+	background-size: cover;
+	color: #ffffff;
+	font-family: "Eurostile LT Std Demi", sans-serif;
+	font-size: 20px;
+	height: 100%;
+	margin: 0;
+}

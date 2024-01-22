@@ -1,0 +1,35 @@
+iframe {
+	border: 0;
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+table {
+	height: 100%;
+	width: 100%;
+}
+
+td.viewport {
+	height: 100%;
+}
+
+td.inputs {
+	height: 0;
+}
+
+form {
+	display: block;
+}
+
+input {
+	display: block;
+	width: 100%;
+}
+
+td.output {
+	background: black;
+	color: greenyellow;
+	height: 250px;
+	overflow: scroll;
+}
